@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Platform - Chapter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">📚 StudyPlatform</a>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="bookmarks.html">🔖 Bookmarks</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <button class="btn-back" onclick="window.location.href='index.html'">← Back to Chapters</button>
+        
+        <div id="chapterHeader">
+            <h2 id="chapterTitle"></h2>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="question-container" id="questionContainer">
+            <!-- Question will be loaded here -->
+        </div>
+
+        <div style="text-align: center;">
+            <button class="btn-next" id="nextBtn">Next Question →</button>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script>
+        // Get chapter from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const chapterKey = urlParams.get('chapter');
+        
+        if (!chapterKey || !questionsData[chapterKey]) {
+            window.location.href = 'index.html';
+        }
+
+        const chapter = questionsData[chapterKey];
+        let currentQuestionIndex = -1;
+        let questions = [];
+
+        // Shuffle questions randomly
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Initialize with shuffled questions
+        function initQuestions() {
+            questions = shuffleArray([...chapter.questions]);
+            currentQuestionIndex = 0;
+            displayQuestion();
+        }
+
+        // Display current question
+        function displayQuestion() {
+            if (currentQuestionIndex >= questions.length) {
+                // Loop back to start
+                currentQuestionIndex = 0;
+            }
+
+            const question = questions[currentQuestionIndex];
+            const isBookmarked = bookmarks[chapterKey]?.includes(question.id);
+
+            document.getElementById('chapterTitle').textContent = chapter.chapterName;
+            
+            const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+
+            const questionContainer = document.getElementById('questionContainer');
+            questionContainer.innerHTML = `
+                <div class="question-card">
+                    <div class="bookmark-icon ${isBookmarked ? 'bookmarked' : ''}" 
+                         onclick="toggleBookmark('${chapterKey}', '${question.id}')">
+                        ${isBookmarked ? '★' : '☆'}
+                    </div>
+                    <div class="question-text">
+                        Q${currentQuestionIndex + 1}: ${question.question}
+                    </div>
+                    <div class="answer-section">
+                        <button class="btn-answer" onclick="showAnswer(this)">See Answer</button>
+                        <div class="answer-text">${question.answer}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Toggle bookmark
+        window.toggleBookmark = function(chapterKey, questionId) {
+            if (!bookmarks[chapterKey]) {
+                bookmarks[chapterKey] = [];
+            }
+            
+            const index = bookmarks[chapterKey].indexOf(questionId);
+            if (index === -1) {
+                bookmarks[chapterKey].push(questionId);
+            } else {
+                bookmarks[chapterKey].splice(index, 1);
+            }
+            
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+            displayQuestion(); // Refresh to update icon
+        };
+
+        // Show answer
+        window.showAnswer = function(button) {
+            const answerDiv = button.nextElementSibling;
+            answerDiv.classList.toggle('show');
+            button.textContent = answerDiv.classList.contains('show') ? 'Hide Answer' : 'See Answer';
+        };
+
+        // Next question
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentQuestionIndex++;
+            if (currentQuestionIndex >= questions.length) {
+                currentQuestionIndex = 0; // Loop back
+            }
+            displayQuestion();
+        });
+
+        // Start with first question
+        initQuestions();
+    </script>
+</body>
+</html>

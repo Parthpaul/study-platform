@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Platform - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">📚 StudyPlatform</a>
+        </div>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="bookmarks.html">🔖 Bookmarks</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>📖 Chapters</h1>
+        <p>Select a chapter to start studying</p>
+        
+        <div class="chapters-grid" id="chaptersGrid">
+            <!-- Chapters will be loaded here by JavaScript -->
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script>
+        // Load chapters on homepage
+        const chaptersGrid = document.getElementById('chaptersGrid');
+        
+        for (let [key, chapter] of Object.entries(questionsData)) {
+            const chapterCard = document.createElement('div');
+            chapterCard.className = 'chapter-card';
+            chapterCard.onclick = () => {
+                window.location.href = `chapter.html?chapter=${key}`;
+            };
+            
+            chapterCard.innerHTML = `
+                <h3>${chapter.chapterName}</h3>
+                <p>${chapter.questions.length} questions</p>
+                <small>Click to start →</small>
+            `;
+            
+            chaptersGrid.appendChild(chapterCard);
+        }
+    </script>
+</body>
+</html>
