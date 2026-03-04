@@ -18,26 +18,24 @@
     </header>
 
     <div class="container">
-        <!-- Simple back link -->
-        <div style="margin-bottom: 2rem;">
-            <a href="bookmarks.html" style="color: var(--accent); text-decoration: none;">← Back to Bookmarks</a>
+        <!-- Compact header line -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <a href="bookmarks.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">← Back to Bookmarks</a>
+            <span id="chapterTitleDisplay" style="color: var(--text-secondary); font-size: 0.9rem;">Chapter Name</span>
         </div>
-
-        <!-- Chapter title (small) -->
-        <div style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;" id="chapterTitleDisplay"></div>
 
         <!-- Question counter -->
-        <div id="questionCounter" style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
-            Question 1/50
+        <div style="text-align: right; margin-bottom: 0.5rem;">
+            <span id="questionCounter" style="color: var(--text-secondary); font-size: 0.9rem;">Question 1/5</span>
         </div>
 
-        <!-- Question card - minimal design -->
+        <!-- Question card - EXACT same style as main page -->
         <div class="question-card-minimal" id="questionContainer">
             <!-- Question will be loaded here -->
         </div>
 
-        <!-- Simple button row -->
-        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
+        <!-- Simple button row - EXACT same as main page -->
+        <div style="display: flex; gap: 0.8rem; justify-content: center; margin-top: 1.2rem;">
             <button class="btn-nav" id="prevBtn">← Back</button>
             <button class="btn-answer-minimal" id="answerBtn">Show Answer</button>
             <button class="btn-nav" id="nextBtn">Next →</button>
@@ -69,7 +67,7 @@
             }
         }
 
-        // Display current question
+        // Display current question - EXACT same style as main page
         function displayQuestion() {
             const question = bookmarkedQuestions[currentIndex];
             
@@ -80,9 +78,10 @@
             const container = document.getElementById('questionContainer');
             container.innerHTML = `
                 <div style="position: relative;">
-                    <div class="bookmark-icon-minimal bookmarked" 
+                    <!-- Delete button instead of bookmark star -->
+                    <div class="delete-icon-minimal" 
                          onclick="removeBookmark('${chapterKey}', '${question.id}')">
-                        ★
+                        🗑️
                     </div>
                     <div class="question-text-minimal">
                         ${question.question}
