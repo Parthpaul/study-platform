@@ -19,7 +19,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
@@ -37,8 +37,8 @@ header {
 
 .logo a {
     color: var(--accent);
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.3rem;
+    font-weight: 500;
     text-decoration: none;
 }
 
@@ -46,9 +46,10 @@ nav a {
     color: var(--text-secondary);
     text-decoration: none;
     margin-left: 2rem;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: all 0.3s;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+    font-size: 0.95rem;
 }
 
 nav a:hover, nav a.active {
@@ -58,172 +59,292 @@ nav a:hover, nav a.active {
 
 /* Main Container */
 .container {
-    max-width: 1200px;
+    max-width: 800px;
     margin: 2rem auto;
     padding: 0 2rem;
 }
 
-/* Chapters Grid - Homepage */
+/* ========== HOMEPAGE STYLES ========== */
+h1 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
 .chapters-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.2rem;
     margin-top: 2rem;
 }
 
 .chapter-card {
     background-color: var(--bg-card);
-    border-radius: 12px;
-    padding: 1.5rem;
+    border-radius: 10px;
+    padding: 1.2rem;
     border: 1px solid var(--border);
-    transition: transform 0.3s;
+    transition: all 0.2s;
     cursor: pointer;
 }
 
 .chapter-card:hover {
-    transform: translateY(-5px);
     border-color: var(--accent);
+    transform: translateY(-2px);
 }
 
 .chapter-card h3 {
     color: var(--accent);
     margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
-/* Question Card */
-.question-container {
-    max-width: 800px;
-    margin: 2rem auto;
+.chapter-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
 }
 
-.question-card {
+.chapter-card small {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+/* ========== CLEAN QUESTION INTERFACE STYLES ========== */
+.question-card-minimal {
     background-color: var(--bg-card);
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 2rem;
     border: 1px solid var(--border);
+    min-height: 200px;
     position: relative;
+    margin-bottom: 1rem;
 }
 
-.bookmark-icon {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--text-secondary);
-    transition: color 0.3s;
-}
-
-.bookmark-icon.bookmarked {
-    color: var(--accent);
-}
-
-.question-text {
-    font-size: 1.3rem;
-    margin: 1.5rem 0;
+.question-text-minimal {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-top: 0.5rem;
     padding-right: 3rem;
 }
 
-/* Answer Section */
-.answer-section {
-    margin: 1.5rem 0;
-    border-top: 1px solid var(--border);
-    padding-top: 1.5rem;
-}
-
-.btn-answer {
-    background-color: transparent;
-    color: var(--accent);
-    border: 2px solid var(--accent);
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-weight: bold;
-}
-
-.btn-answer:hover {
-    background-color: var(--accent);
-    color: var(--bg-primary);
-}
-
-.answer-text {
-    margin-top: 1rem;
-    padding: 1rem;
+.answer-text-minimal {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
     background-color: var(--bg-secondary);
     border-radius: 8px;
-    display: none;
-}
-
-.answer-text.show {
-    display: block;
-}
-
-/* Navigation Buttons */
-.btn-next, .btn-back {
-    background-color: var(--accent);
-    color: var(--bg-primary);
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 8px;
+    color: var(--text-primary);
     font-size: 1.1rem;
+    border-left: 3px solid var(--accent);
+}
+
+.bookmark-icon-minimal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.8rem;
     cursor: pointer;
-    transition: all 0.3s;
-    font-weight: bold;
-    margin: 1rem 0;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+    line-height: 1;
 }
 
-.btn-next:hover, .btn-back:hover {
+.bookmark-icon-minimal.bookmarked {
+    color: var(--accent);
+}
+
+/* Clean buttons */
+.btn-nav {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+    min-width: 90px;
+    font-family: inherit;
+}
+
+.btn-nav:hover {
+    background-color: var(--bg-card);
+    border-color: var(--accent);
+}
+
+.btn-answer-minimal {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+    min-width: 120px;
+    font-weight: 500;
+    font-family: inherit;
+}
+
+.btn-answer-minimal:hover {
     background-color: var(--accent-hover);
-    transform: scale(1.05);
 }
 
-/* Progress Bar */
+/* Simple back link */
+.back-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Question counter */
+#questionCounter {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Chapter title display (small) */
+#chapterTitleDisplay {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* ========== BOOKMARKS PAGE STYLES ========== */
+.bookmarks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+#noBookmarksMessage {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+/* ========== PROGRESS BAR (if needed) ========== */
 .progress-bar {
     width: 100%;
-    height: 8px;
+    height: 4px;
     background-color: var(--bg-secondary);
-    border-radius: 4px;
-    margin: 2rem 0;
+    border-radius: 2px;
+    margin: 1rem 0;
 }
 
 .progress-fill {
     height: 100%;
     background-color: var(--accent);
-    border-radius: 4px;
+    border-radius: 2px;
     width: 0%;
     transition: width 0.3s;
 }
 
-/* Bookmarks Page */
-.bookmarks-container {
+/* ========== UTILITY CLASSES ========== */
+.button-row {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
-.bookmark-item {
-    background-color: var(--bg-card);
-    border-radius: 12px;
-    padding: 1.5rem;
-    border: 1px solid var(--border);
-    position: relative;
+.text-secondary {
+    color: var(--text-secondary);
 }
 
-.delete-bookmark {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    color: var(--danger);
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 0.2rem 0.5rem;
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 600px) {
+    header {
+        padding: 1rem;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    nav a {
+        margin-left: 1rem;
+    }
+    
+    .question-card-minimal {
+        padding: 1.5rem;
+    }
+    
+    .question-text-minimal {
+        font-size: 1.1rem;
+        padding-right: 2.5rem;
+    }
+    
+    .bookmark-icon-minimal {
+        font-size: 1.6rem;
+        top: 0.8rem;
+        right: 1.2rem;
+    }
+    
+    .button-row {
+        flex-wrap: wrap;
+    }
+    
+    .btn-nav, .btn-answer-minimal {
+        padding: 0.5rem 1rem;
+        min-width: 70px;
+        font-size: 0.9rem;
+    }
+    
+    .chapters-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.answer-text-minimal {
+    animation: fadeIn 0.2s ease-in;
+}
+
+/* ========== SCROLLBAR STYLING (optional) ========== */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
     border-radius: 4px;
 }
 
-.delete-bookmark:hover {
-    background-color: var(--danger);
-    color: var(--bg-primary);
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
 }
