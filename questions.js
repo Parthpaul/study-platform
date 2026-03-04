@@ -1,5 +1,5 @@
 // ============================================
-// COMPLETE QUESTIONS DATABASE - ALL 6 CHAPTERS
+// COMPLETE QUESTIONS DATABASE - ALL 12 CHAPTERS
 // ============================================
 
 const questionsData = {
@@ -789,7 +789,7 @@ const questionsData = {
         ]
     },
 
-    // ===== CHAPTER 3: SQL DATABASE (50 Questions) =====
+    // ===== CHAPTER 3: DATABASE QUERY USING SQL (50 Questions) =====
     sqlDatabase: {
         chapterName: "Database Query using SQL",
         questions: [
@@ -1405,7 +1405,7 @@ const questionsData = {
             },
             {
                 id: "py68",
-               question: "What method is used to read (unpickle) data from a binary file?",
+                question: "What method is used to read (unpickle) data from a binary file?",
                 answer: "The pickle.load(file_handle) method is used."
             },
             {
@@ -1814,6 +1814,1146 @@ const questionsData = {
                 id: "trend50",
                 question: "What is a common application of Blockchain technology?",
                 answer: "Cryptocurrencies like Bitcoin are the most famous application, allowing secure peer-to-peer financial transactions without a central bank."
+            }
+        ]
+    },
+
+    // ===== CHAPTER 7: PYTHON INTRODUCTION (50 Questions) =====
+    pythonIntro: {
+        chapterName: "Python Introduction",
+        questions: [
+            // Page 46-47
+            {
+                id: "pyIntro1",
+                question: "What are the two modes of the Python interpreter?",
+                answer: "Interactive mode (executes code line-by-line instantly) and Script mode (saves code in a .py file and runs it all at once)."
+            },
+            {
+                id: "pyIntro2",
+                question: "Why is indentation crucial in Python?",
+                answer: "Unlike other languages that use curly brackets { }, Python uses indentation (spaces/tabs) to define blocks of code like loops and functions."
+            },
+            {
+                id: "pyIntro3",
+                question: "What is an identifier?",
+                answer: "An identifier is a user-defined name given to variables, functions, classes, etc. (e.g., age, calculate_sum)."
+            },
+            {
+                id: "pyIntro4",
+                question: "What are the rules for naming an identifier?",
+                answer: "It must start with a letter (A-Z, a-z) or underscore (_). It cannot start with a number and cannot contain special characters like @, $ or spaces."
+            },
+            {
+                id: "pyIntro5",
+                question: "What is a keyword in Python?",
+                answer: "Keywords are reserved words that have a special meaning in Python (e.g., if, for, True). They cannot be used as identifier names."
+            },
+            {
+                id: "pyIntro6",
+                question: "Are Python keywords case-sensitive?",
+                answer: "Yes. For example, True and False are valid keywords, but true and false are not."
+            },
+            {
+                id: "pyIntro7",
+                question: "What is a variable?",
+                answer: "A variable is a named memory location used to store data temporarily during program execution (e.g., x = 10)."
+            },
+            {
+                id: "pyIntro8",
+                question: "Do we need to declare the data type of a variable in Python?",
+                answer: "No, Python is dynamically typed. The type is automatically assigned based on the value (e.g., x = 5 makes x an integer)."
+            },
+            {
+                id: "pyIntro9",
+                question: "What is a constant?",
+                answer: "A constant is a type of variable whose value cannot be changed. In Python, we usually write constant names in ALL_CAPS by convention (e.g., PI = 3.14)."
+            },
+            {
+                id: "pyIntro10",
+                question: "How do you write a comment in Python?",
+                answer: "Use the hash symbol # for a single-line comment. Comments are ignored by the Python interpreter."
+            },
+            {
+                id: "pyIntro11",
+                question: "How do you assign multiple values to multiple variables in one line?",
+                answer: "You can use commas: a, b, c = 1, 2, 3."
+            },
+            {
+                id: "pyIntro12",
+                question: "How do you swap two variables without a third temporary variable?",
+                answer: "In Python, it's as simple as: a, b = b, a."
+            },
+            {
+                id: "pyIntro13",
+                question: "What is the extension of a Python file?",
+                answer: "Python script files are saved with a .py extension."
+            },
+            {
+                id: "pyIntro14",
+                question: "What happens if you forget to indent a block properly?",
+                answer: "The Python interpreter will throw an IndentationError and stop execution."
+            },
+            {
+                id: "pyIntro15",
+                question: "What is debugging?",
+                answer: "Debugging is the process of identifying, analyzing, and fixing errors (bugs) in a program to make it run correctly."
+            },
+            
+            // Data Types & Mutability (Page 46-47)
+            {
+                id: "pyIntro16",
+                question: "What is a data type?",
+                answer: "It classifies the type of value a variable holds, such as integer, float, string, or boolean."
+            },
+            {
+                id: "pyIntro17",
+                question: "What is the difference between mutable and immutable data types?",
+                answer: "Mutable data types can be changed after creation (e.g., Lists, Dictionaries). Immutable data types cannot be changed (e.g., Strings, Integers, Tuples)."
+            },
+            {
+                id: "pyIntro18",
+                question: "Which built-in function is used to check the data type of a variable?",
+                answer: "The type() function. For example, type(5) returns <class 'int'>."
+            },
+            {
+                id: "pyIntro19",
+                question: "What is type conversion (type casting)?",
+                answer: "It is the process of converting one data type into another, like converting a string '5' into an integer using int('5')."
+            },
+            {
+                id: "pyIntro20",
+                question: "What is implicit type conversion?",
+                answer: "It happens automatically when Python converts a smaller data type to a larger one to prevent data loss (e.g., adding an int and a float results in a float)."
+            },
+            {
+                id: "pyIntro21",
+                question: "What does the int() function do?",
+                answer: "It converts a string or a float to an integer. Example: int(3.8) becomes 3."
+            },
+            {
+                id: "pyIntro22",
+                question: "Are strings mutable in Python?",
+                answer: "No, strings are immutable. You cannot change a character of a string in place; you must create a new string."
+            },
+            {
+                id: "pyIntro23",
+                question: "What is a boolean data type?",
+                answer: "It is a data type that can hold only one of two values: True or False."
+            },
+            {
+                id: "pyIntro24",
+                question: "How do you convert a number to a string?",
+                answer: "Use the str() function. Example: str(100) becomes '100'."
+            },
+            {
+                id: "pyIntro25",
+                question: "What happens if you try to modify an immutable data type?",
+                answer: "Python will throw a TypeError."
+            },
+            
+            // Operators & Expressions (Page 47-48)
+            {
+                id: "pyIntro26",
+                question: "What is an expression?",
+                answer: "An expression is a combination of variables, operators, and values that evaluates to a single result (e.g., 5 + 3 * 2)."
+            },
+            {
+                id: "pyIntro27",
+                question: "What is the difference between / and // operators?",
+                answer: "/ is normal division and always returns a float (e.g., 5 / 2 = 2.5). // is floor division and returns an integer (e.g., 5 // 2 = 2)."
+            },
+            {
+                id: "pyIntro28",
+                question: "What does the % (modulus) operator do?",
+                answer: "It returns the remainder of a division. Example: 10 % 3 returns 1."
+            },
+            {
+                id: "pyIntro29",
+                question: "What is the ** operator?",
+                answer: "It is the exponentiation operator. 2 ** 3 means 2 raised to the power of 3, which equals 8."
+            },
+            {
+                id: "pyIntro30",
+                question: "What is operator precedence?",
+                answer: "It is the rule that determines the order in which operators are evaluated. Python follows PEMDAS/BODMAS."
+            },
+            {
+                id: "pyIntro31",
+                question: "What are relational (comparison) operators?",
+                answer: "They compare two values and return a boolean (True or False). Examples include ==, !=, >, <, >=, <=."
+            },
+            {
+                id: "pyIntro32",
+                question: "What is the difference between = and ==?",
+                answer: "= is an assignment operator used to assign a value to a variable. == is a comparison operator used to check if two values are equal."
+            },
+            {
+                id: "pyIntro33",
+                question: "What are logical operators?",
+                answer: "and, or, and not. They are used to combine multiple conditional statements."
+            },
+            {
+                id: "pyIntro34",
+                question: "Evaluate the expression: not (5 > 3).",
+                answer: "False. 5 > 3 is True, and the not operator reverses it to False."
+            },
+            {
+                id: "pyIntro35",
+                question: "What is the output of True and False?",
+                answer: "False. The and operator requires both sides to be True to result in True."
+            },
+            {
+                id: "pyIntro36",
+                question: "What are shorthand assignment operators?",
+                answer: "Operators like +=, -=, *=. For example, x += 5 is exactly the same as x = x + 5."
+            },
+            {
+                id: "pyIntro37",
+                question: "What are membership operators?",
+                answer: "in and not in. They check if a value is present in a sequence (like a string or list)."
+            },
+            {
+                id: "pyIntro38",
+                question: "What is the result of 'p' in 'apple'?",
+                answer: "True, because the character 'p' is inside the string 'apple'."
+            },
+            {
+                id: "pyIntro39",
+                question: "What is a statement in Python?",
+                answer: "A statement is an instruction that the Python interpreter can execute (e.g., x = 5 or print(x))."
+            },
+            {
+                id: "pyIntro40",
+                question: "How are expressions evaluated?",
+                answer: "From left to right, following the rules of operator precedence and associativity."
+            },
+            
+            // Input/Output & Control (Page 48-49)
+            {
+                id: "pyIntro41",
+                question: "How do you take input from the user?",
+                answer: "Using the input() function. Example: name = input('Enter your name: ')."
+            },
+            {
+                id: "pyIntro42",
+                question: "What is the default data type of the value returned by input()?",
+                answer: "It always returns a String."
+            },
+            {
+                id: "pyIntro43",
+                question: "How do you accept an integer input from the user?",
+                answer: "You must typecast the input using int(). Example: age = int(input('Enter age: '))."
+            },
+            {
+                id: "pyIntro44",
+                question: "What does the print() statement do?",
+                answer: "It displays output to the screen/console."
+            },
+            {
+                id: "pyIntro45",
+                question: "How do you prevent print() from moving to a new line?",
+                answer: "Use the end parameter. Example: print('Hello', end=' ') will keep the cursor on the same line with a space."
+            },
+            {
+                id: "pyIntro46",
+                question: "What is the if statement used for?",
+                answer: "It is used for decision-making. The code block inside the if runs only if its condition evaluates to True."
+            },
+            {
+                id: "pyIntro47",
+                question: "What is the purpose of the elif keyword?",
+                answer: "elif stands for 'else if'. It is used to check multiple conditions consecutively if the previous if conditions were False."
+            },
+            {
+                id: "pyIntro48",
+                question: "What does the else block do?",
+                answer: "It executes automatically if all preceding if and elif conditions evaluate to False."
+            },
+            {
+                id: "pyIntro49",
+                question: "What is a for loop?",
+                answer: "A for loop is used to iterate over a sequence (like a list, string, or range) and execute a block of code for each item."
+            },
+            {
+                id: "pyIntro50",
+                question: "What does the range() function do?",
+                answer: "It generates a sequence of numbers. range(5) generates numbers from 0 to 4."
+            }
+        ]
+    },
+
+    // ===== CHAPTER 8: LISTS & DICTIONARIES (50 Questions) =====
+    listsDicts: {
+        chapterName: "Lists & Dictionaries",
+        questions: [
+            // Lists (Page 49-50)
+            {
+                id: "list1",
+                question: "What is a List?",
+                answer: "A list is an ordered, mutable collection of elements enclosed in square brackets []. Example: L = [1, 2, 3]."
+            },
+            {
+                id: "list2",
+                question: "Can a list hold different data types?",
+                answer: "Yes, lists are heterogeneous. Example: ['Apple', 10, 3.14, True] is a valid list."
+            },
+            {
+                id: "list3",
+                question: "How do you create an empty list?",
+                answer: "L = [] or L = list()."
+            },
+            {
+                id: "list4",
+                question: "How does indexing work in lists?",
+                answer: "Lists are zero-indexed. The first element is at index 0, the second at 1, and so on."
+            },
+            {
+                id: "list5",
+                question: "What is negative indexing?",
+                answer: "Python allows negative indexing from the end. -1 refers to the last element, -2 to the second last, etc."
+            },
+            {
+                id: "list6",
+                question: "How do you traverse a list?",
+                answer: "Using a for loop: for item in my_list: print(item)."
+            },
+            {
+                id: "list7",
+                question: "What does the len() function do for lists?",
+                answer: "It returns the total number of elements present in the list."
+            },
+            {
+                id: "list8",
+                question: "What does list.append(item) do?",
+                answer: "It adds a single item to the very end of the list."
+            },
+            {
+                id: "list9",
+                question: "What is the difference between append() and extend()?",
+                answer: "append() adds one element as a single object. extend() adds multiple elements from an iterable (like another list) to the end."
+            },
+            {
+                id: "list10",
+                question: "How do you insert an item at a specific index?",
+                answer: "Use insert(index, item). Example: L.insert(1, 'Hello') places 'Hello' at index 1."
+            },
+            {
+                id: "list11",
+                question: "What does list.count(item) do?",
+                answer: "It returns the number of times a specific item appears in the list."
+            },
+            {
+                id: "list12",
+                question: "How do you remove a specific value from a list?",
+                answer: "Use list.remove(value). It removes the first occurrence of that value."
+            },
+            {
+                id: "list13",
+                question: "What does list.pop() do?",
+                answer: "It removes and returns the last element of the list. If you provide an index, like pop(2), it removes the element at that index."
+            },
+            {
+                id: "list14",
+                question: "How do you reverse a list?",
+                answer: "Use the list.reverse() method. It reverses the elements directly in the original list."
+            },
+            {
+                id: "list15",
+                question: "What is the difference between sort() and sorted()?",
+                answer: "list.sort() sorts the original list in place. sorted(list) creates and returns a brand new sorted list, leaving the original unchanged."
+            },
+            {
+                id: "list16",
+                question: "How do you find the maximum and minimum numbers in a list?",
+                answer: "Use the built-in functions max(list) and min(list)."
+            },
+            {
+                id: "list17",
+                question: "How do you calculate the sum of all numeric elements in a list?",
+                answer: "Use the sum(list) built-in function."
+            },
+            {
+                id: "list18",
+                question: "What is list slicing?",
+                answer: "Extracting a portion of a list using L[start:stop:step]. Example: L[1:4] gets elements from index 1 to 3."
+            },
+            {
+                id: "list19",
+                question: "What is the result of [1, 2] + [3, 4]?",
+                answer: "[1, 2, 3, 4]. The + operator concatenates (joins) two lists."
+            },
+            {
+                id: "list20",
+                question: "What is the result of [1, 2] * 3?",
+                answer: "[1, 2, 1, 2, 1, 2]. The * operator replicates the list."
+            },
+            {
+                id: "list21",
+                question: "How do you update a list element?",
+                answer: "Access it via its index and assign a new value. Example: L[0] = 100."
+            },
+            {
+                id: "list22",
+                question: "Are lists mutable?",
+                answer: "Yes, you can modify, add, or remove elements after the list is created."
+            },
+            {
+                id: "list23",
+                question: "How do you delete a list element using its index?",
+                answer: "Use the del statement. Example: del L[2] deletes the item at index 2."
+            },
+            {
+                id: "list24",
+                question: "What error occurs if you try to access an index that doesn't exist?",
+                answer: "An IndexError: list index out of range."
+            },
+            
+            // Dictionaries (Page 50-51)
+            {
+                id: "dict25",
+                question: "What is a Dictionary?",
+                answer: "A dictionary is an unordered, mutable collection of data stored as key-value pairs, enclosed in curly braces {}."
+            },
+            {
+                id: "dict26",
+                question: "How do you separate a key and a value?",
+                answer: "Using a colon :. Example: {'name': 'Rahul', 'age': 16}."
+            },
+            {
+                id: "dict27",
+                question: "Can a dictionary have duplicate keys?",
+                answer: "No. Keys must be unique. If you assign a new value to an existing key, the old value is overwritten."
+            },
+            {
+                id: "dict28",
+                question: "Can keys be mutable data types (like lists)?",
+                answer: "No. Keys must be immutable (like strings, integers, or tuples). Values, however, can be of any data type."
+            },
+            {
+                id: "dict29",
+                question: "How do you access a value in a dictionary?",
+                answer: "Using its key in square brackets. Example: my_dict['name']."
+            },
+            {
+                id: "dict30",
+                question: "How do you create an empty dictionary?",
+                answer: "D = {} or D = dict()."
+            },
+            {
+                id: "dict31",
+                question: "How do you add a new key-value pair to a dictionary?",
+                answer: "Assign a value to a new key. Example: D['marks'] = 95."
+            },
+            {
+                id: "dict32",
+                question: "How do you update an existing value?",
+                answer: "Assign a new value to an existing key. Example: D['age'] = 17."
+            },
+            {
+                id: "dict33",
+                question: "How do you traverse a dictionary to print all keys?",
+                answer: "Using a for loop: for key in D: print(key)."
+            },
+            {
+                id: "dict34",
+                question: "What does len() do for a dictionary?",
+                answer: "It returns the total number of key-value pairs present in the dictionary."
+            },
+            {
+                id: "dict35",
+                question: "What does the dict.keys() method return?",
+                answer: "It returns a view object containing all the keys of the dictionary."
+            },
+            {
+                id: "dict36",
+                question: "What does the dict.values() method return?",
+                answer: "It returns a view object containing all the values of the dictionary."
+            },
+            {
+                id: "dict37",
+                question: "What does the dict.items() method return?",
+                answer: "It returns a view object containing tuples of all (key, value) pairs."
+            },
+            {
+                id: "dict38",
+                question: "What is the advantage of using the get() method?",
+                answer: "D.get('key') returns the value if the key exists. If it doesn't, it returns None instead of crashing with a KeyError."
+            },
+            {
+                id: "dict39",
+                question: "What does the dict.update() method do?",
+                answer: "It merges another dictionary into the current dictionary, adding new pairs and updating existing keys."
+            },
+            {
+                id: "dict40",
+                question: "What does dict.clear() do?",
+                answer: "It removes all elements from the dictionary, leaving it empty {}."
+            },
+            {
+                id: "dict41",
+                question: "How do you delete a specific key-value pair?",
+                answer: "Use the del keyword. Example: del D['age']."
+            },
+            {
+                id: "dict42",
+                question: "How do you check if a key exists in a dictionary?",
+                answer: "Use the in membership operator. Example: if 'name' in D:."
+            },
+            {
+                id: "dict43",
+                question: "How do you loop through both keys and values simultaneously?",
+                answer: "Use the items() method: for key, value in D.items(): print(key, value)."
+            }
+        ]
+    },
+
+    // ===== CHAPTER 9: DBMS & PYTHON SQL (50 Questions) =====
+    dbmsPython: {
+        chapterName: "DBMS & Python SQL",
+        questions: [
+            // Page 36-37
+            {
+                id: "dbms1",
+                question: "What is a Database?",
+                answer: "A database is an organized, structured collection of data stored electronically, making it easy to access, manage, and update."
+            },
+            {
+                id: "dbms2",
+                question: "What is a DBMS?",
+                answer: "DBMS stands for Database Management System. It is software used to create, manage, and manipulate databases (e.g., MySQL, Oracle)."
+            },
+            {
+                id: "dbms3",
+                question: "State one primary advantage of DBMS over a traditional file system.",
+                answer: "Unlike file systems, a DBMS reduces data duplication (redundancy) and allows multiple users to access data simultaneously."
+            },
+            {
+                id: "dbms4",
+                question: "What is Data Redundancy?",
+                answer: "Data redundancy is the unnecessary duplication of the same data in multiple places within a database or file system."
+            },
+            {
+                id: "dbms5",
+                question: "What is Data Inconsistency?",
+                answer: "It occurs when different copies of the same data do not match, usually caused by failing to update redundant data across all files."
+            },
+            {
+                id: "dbms6",
+                question: "What is Data Isolation in DBMS?",
+                answer: "Data isolation ensures that the application logic is separate from the data structure, meaning changes to the database structure don't break the application."
+            },
+            {
+                id: "dbms7",
+                question: "How does a database ensure data security?",
+                answer: "It ensures security by assigning user accounts, passwords, and access rights, restricting unauthorized users from viewing or modifying data."
+            },
+            {
+                id: "dbms8",
+                question: "What is data integrity?",
+                answer: "Data integrity means ensuring that the data stored in a database is accurate, valid, and consistent throughout its lifecycle."
+            },
+            {
+                id: "dbms9",
+                question: "Give an example of a popular Relational DBMS.",
+                answer: "MySQL, Oracle, PostgreSQL, and Microsoft SQL Server are all popular examples of Relational DBMS."
+            },
+            {
+                id: "dbms10",
+                question: "What is a query?",
+                answer: "A query is a specific request for data or information retrieved from a database table using a database language like SQL."
+            },
+            
+            // Relational Data Model (Page 36-37)
+            {
+                id: "dbms11",
+                question: "What is a Relational Data Model?",
+                answer: "It is a model that organizes data into tables (called relations) consisting of rows and columns, establishing relationships between them."
+            },
+            {
+                id: "dbms12",
+                question: "What is a 'Relation' in a database?",
+                answer: "In a relational model, a 'Relation' is a two-dimensional table that contains data arranged in rows and columns."
+            },
+            {
+                id: "dbms13",
+                question: "What is an Attribute?",
+                answer: "An attribute is a column or field in a relational table that represents a specific property or characteristic of the data (e.g., 'Name' or 'Age')."
+            },
+            {
+                id: "dbms14",
+                question: "What is a Tuple?",
+                answer: "A tuple is a single row or record in a relational table, containing a complete set of related data."
+            },
+            {
+                id: "dbms15",
+                question: "What is a Domain?",
+                answer: "A domain is the set of all valid, permissible values from which an attribute can take its values (e.g., a domain for 'Gender' might be just 'M' or 'F')."
+            },
+            {
+                id: "dbms16",
+                question: "What is the Degree of a relation?",
+                answer: "The degree of a relation is the total number of attributes (columns) present in that table."
+            },
+            {
+                id: "dbms17",
+                question: "What is the Cardinality of a relation?",
+                answer: "The cardinality of a relation is the total number of tuples (rows) present in that table."
+            },
+            {
+                id: "dbms18",
+                question: "If a table has 4 columns and 15 rows, what is its degree?",
+                answer: "The degree of the table is 4."
+            },
+            {
+                id: "dbms19",
+                question: "If a table has 4 columns and 15 rows, what is its cardinality?",
+                answer: "The cardinality of the table is 15."
+            },
+            {
+                id: "dbms20",
+                question: "Can two tuples in a strict relational model be exactly identical?",
+                answer: "No, in a strictly relational model, all tuples must be unique to avoid data duplication."
+            },
+            
+            // Keys in Database (Page 37)
+            {
+                id: "dbms21",
+                question: "What is a Key in a database?",
+                answer: "A key is an attribute or a combination of attributes used to uniquely identify a tuple (row) in a relation."
+            },
+            {
+                id: "dbms22",
+                question: "What is a Primary Key?",
+                answer: "A primary key is an attribute that uniquely identifies each row in a table. It cannot contain duplicate or NULL values."
+            },
+            {
+                id: "dbms23",
+                question: "What is a Candidate Key?",
+                answer: "Any attribute or combination of attributes that has the potential to act as a primary key (unique and not null) is called a candidate key."
+            },
+            {
+                id: "dbms24",
+                question: "What is an Alternate Key?",
+                answer: "Out of all the candidate keys, the one chosen as the main identifier is the primary key. The remaining candidate keys are called alternate keys."
+            },
+            {
+                id: "dbms25",
+                question: "What is a Foreign Key?",
+                answer: "A foreign key is an attribute in one table that links to the primary key of another table, establishing a relationship between the two."
+            },
+            {
+                id: "dbms26",
+                question: "How many primary keys can a single table have?",
+                answer: "A table can have only one primary key, although that key can be made up of multiple columns (Composite Key)."
+            },
+            {
+                id: "dbms27",
+                question: "Can a primary key contain a NULL value?",
+                answer: "No, a primary key must always have a definite, unique value. It cannot be left empty (NULL)."
+            },
+            {
+                id: "dbms28",
+                question: "Does a Foreign Key always have to be unique?",
+                answer: "No, foreign keys can have duplicate values because multiple rows in a child table can link to a single row in the parent table."
+            },
+            {
+                id: "dbms29",
+                question: "Can a foreign key contain NULL values?",
+                answer: "Yes, unless explicitly restricted by constraints, a foreign key can contain NULL values."
+            },
+            {
+                id: "dbms30",
+                question: "What is referential integrity?",
+                answer: "It is a rule stating that a foreign key value must match an existing primary key value in the linked table or be NULL, preventing 'orphan' records."
+            },
+            
+            // SQL Data Types & DDL (Page 37-39)
+            {
+                id: "dbms31",
+                question: "What does SQL stand for?",
+                answer: "SQL stands for Structured Query Language."
+            },
+            {
+                id: "dbms32",
+                question: "What is the purpose of SQL?",
+                answer: "SQL is the standard language used to communicate with, manage, and manipulate data within relational databases."
+            },
+            {
+                id: "dbms33",
+                question: "What is DDL?",
+                answer: "DDL (Data Definition Language) includes commands used to define or alter the structure of the database and its tables (e.g., CREATE, ALTER, DROP)."
+            },
+            {
+                id: "dbms34",
+                question: "What is DML?",
+                answer: "DML (Data Manipulation Language) includes commands used to insert, modify, or delete the actual data inside the tables (e.g., INSERT, UPDATE, DELETE)."
+            },
+            {
+                id: "dbms35",
+                question: "Classify these commands into DDL and DML: DROP, INSERT, CREATE, UPDATE.",
+                answer: "DDL: CREATE, DROP. DML: INSERT, UPDATE."
+            },
+            {
+                id: "dbms36",
+                question: "What does the int data type store?",
+                answer: "It stores whole numbers (integers) without any decimal points, such as 10, -5, or 1000."
+            },
+            {
+                id: "dbms37",
+                question: "What does the float data type store?",
+                answer: "It stores floating-point numbers, which are numbers containing decimal points, such as 10.5 or -3.14."
+            },
+            {
+                id: "dbms38",
+                question: "Differentiate between char(n) and varchar(n).",
+                answer: "char(n) is a fixed-length string that pads empty spaces if the data is shorter than n. varchar(n) is a variable-length string that only uses the space needed."
+            },
+            {
+                id: "dbms39",
+                question: "What is the standard format for the date data type in MySQL?",
+                answer: "The standard format is 'YYYY-MM-DD' (Year-Month-Day)."
+            },
+            {
+                id: "dbms40",
+                question: "Write the command to create a new database named 'School'.",
+                answer: "CREATE DATABASE School;"
+            },
+            {
+                id: "dbms41",
+                question: "Which command is used to open an existing database to work inside it?",
+                answer: "USE School;"
+            },
+            {
+                id: "dbms42",
+                question: "Write a query to create a simple 'Emp' table with ID and Name.",
+                answer: "CREATE TABLE Emp (ID int, Name varchar(30));"
+            },
+            {
+                id: "dbms43",
+                question: "Which command displays the structure (columns, types, keys) of a table?",
+                answer: "DESCRIBE table_name; or DESC table_name;"
+            },
+            {
+                id: "dbms44",
+                question: "How do you add a new column 'Age' of type INT to table 'Student'?",
+                answer: "ALTER TABLE Student ADD Age INT;"
+            },
+            {
+                id: "dbms45",
+                question: "How do you remove an existing column 'Age' from the table 'Student'?",
+                answer: "ALTER TABLE Student DROP Age;"
+            },
+            
+            // Python with MySQL (Page 43-44)
+            {
+                id: "dbms46",
+                question: "Which Python library is most commonly used to connect Python with MySQL?",
+                answer: "The mysql.connector library is widely used for this purpose."
+            },
+            {
+                id: "dbms47",
+                question: "How do you import the MySQL connector in a Python script?",
+                answer: "import mysql.connector"
+            },
+            {
+                id: "dbms48",
+                question: "Which function is used to establish a connection to the database?",
+                answer: "The connect() function (e.g., mysql.connector.connect())."
+            },
+            {
+                id: "dbms49",
+                question: "What is a 'Cursor' in Python database connectivity?",
+                answer: "A cursor is a temporary memory area/object used to execute SQL statements and fetch data from the database into Python."
+            },
+            {
+                id: "dbms50",
+                question: "Which method runs the SQL query inside Python?",
+                answer: "The execute() method of the cursor object (e.g., cursor.execute('SELECT * FROM Emp'))."
+            }
+        ]
+    },
+
+    // ===== CHAPTER 10: COMPUTER SYSTEMS & ORGANISATION (50 Questions) =====
+    computerSystems: {
+        chapterName: "Computer Systems & Organisation",
+        questions: [
+            // Page 57-58
+            {
+                id: "cs1",
+                question: "What are the main components of a computer system?",
+                answer: "A computer consists of a Central Processing Unit (CPU), Memory (Primary and Secondary), and Input/Output (I/O) devices."
+            },
+            {
+                id: "cs2",
+                question: "What is the function of the ALU in a CPU?",
+                answer: "The Arithmetic Logic Unit (ALU) performs all mathematical calculations (addition, subtraction) and logical comparisons (greater than, equal to)."
+            },
+            {
+                id: "cs3",
+                question: "What is the main difference between RAM and ROM?",
+                answer: "RAM (Random Access Memory) is temporary/volatile and loses data when power goes off. ROM (Read-Only Memory) is permanent/non-volatile and stores startup instructions."
+            },
+            {
+                id: "cs4",
+                question: "What is cache memory?",
+                answer: "It is a very high-speed memory placed between the CPU and RAM. It stores frequently used data to speed up processing."
+            },
+            {
+                id: "cs5",
+                question: "Arrange these memory units from smallest to largest: MB, Byte, KB, GB, Bit.",
+                answer: "Bit < Byte < KB < MB < GB."
+            },
+            {
+                id: "cs6",
+                question: "What is a Nibble?",
+                answer: "A group of 4 bits is called a nibble. It is exactly half of a byte (which is 8 bits)."
+            },
+            {
+                id: "cs7",
+                question: "How many bytes make up 1 Kilobyte (KB)?",
+                answer: "1 Kilobyte (KB) is equal to 1024 bytes (or 2^10 bytes)."
+            },
+            {
+                id: "cs8",
+                question: "Differentiate between hardware and software.",
+                answer: "Hardware refers to the physical, touchable parts of a computer (like a monitor or keyboard). Software is the set of instructions or programs that tell the hardware what to do."
+            },
+            {
+                id: "cs9",
+                question: "Give two examples of secondary memory.",
+                answer: "Hard Disk Drives (HDD), Solid State Drives (SSD), and Pen drives. They are used for permanent bulk storage."
+            },
+            {
+                id: "cs10",
+                question: "What is the role of the Control Unit (CU)?",
+                answer: "The CU acts as the central nervous system of the computer. It directs the flow of data and instructions between the CPU, memory, and I/O devices."
+            },
+            
+            // Types of Software (Page 57-58)
+            {
+                id: "cs11",
+                question: "What is system software?",
+                answer: "System software acts as a bridge between computer hardware and the user/applications. Example: Operating Systems like Windows."
+            },
+            {
+                id: "cs12",
+                question: "What are device drivers?",
+                answer: "Device drivers are special system software programs that allow the Operating System to communicate effectively with hardware devices (like a printer or scanner)."
+            },
+            {
+                id: "cs13",
+                question: "What is the difference between a compiler and an interpreter?",
+                answer: "A compiler translates the entire program into machine code all at once, while an interpreter translates and executes the code line-by-line."
+            },
+            {
+                id: "cs14",
+                question: "What is an assembler?",
+                answer: "An assembler is a language translator that converts low-level assembly language (using mnemonics like ADD, SUB) into machine language (0s and 1s)."
+            },
+            {
+                id: "cs15",
+                question: "What is application software?",
+                answer: "Application software is designed to perform specific tasks for the user, such as typing a document (MS Word) or browsing the internet (Google Chrome)."
+            },
+            {
+                id: "cs16",
+                question: "What are system utilities?",
+                answer: "Utilities are housekeeping programs that help maintain, optimize, and protect the computer system. Examples: Antivirus software and Disk Defragmenters."
+            },
+            
+            // Operating System (Page 58)
+            {
+                id: "cs17",
+                question: "What is an Operating System (OS)?",
+                answer: "An OS is the core system software that manages hardware resources and provides a user interface to interact with the computer."
+            },
+            {
+                id: "cs18",
+                question: "Name two primary functions of an Operating System.",
+                answer: "1. Memory Management (allocating RAM to programs) and 2. Process Management (deciding which task runs on the CPU)."
+            },
+            {
+                id: "cs19",
+                question: "What is an OS User Interface?",
+                answer: "It is the visual or command-based mechanism through which a user interacts with the computer system (e.g., clicking icons or typing commands)."
+            },
+            {
+                id: "cs20",
+                question: "Give an example of a GUI and a CLI Operating System.",
+                answer: "Windows and macOS use a GUI (Graphical User Interface). MS-DOS uses a CLI (Command Line Interface)."
+            },
+            {
+                id: "cs21",
+                question: "What is multitasking in an OS?",
+                answer: "Multitasking is the ability of an operating system to run multiple applications simultaneously, like listening to music while typing a document."
+            },
+            
+            // Boolean Logic (Page 58-59)
+            {
+                id: "cs22",
+                question: "What is a Boolean expression?",
+                answer: "A mathematical expression that evaluates to only one of two possible values: True (1) or False (0)."
+            },
+            {
+                id: "cs23",
+                question: "What does the AND gate do?",
+                answer: "An AND gate outputs True (1) only if all of its inputs are True (1). Otherwise, the output is False (0)."
+            },
+            {
+                id: "cs24",
+                question: "What does the OR gate do?",
+                answer: "An OR gate outputs True (1) if at least one of its inputs is True (1). It only outputs False if all inputs are False."
+            },
+            {
+                id: "cs25",
+                question: "What is the function of a NOT gate?",
+                answer: "It acts as an inverter. It changes a True (1) input into False (0), and a False (0) input into True (1)."
+            },
+            {
+                id: "cs26",
+                question: "Why are NAND and NOR called 'Universal Gates'?",
+                answer: "Because any logical function or basic logic gate (AND, OR, NOT) can be created using only NAND gates or only NOR gates."
+            },
+            {
+                id: "cs27",
+                question: "What is De Morgan's First Law?",
+                answer: "The complement of a logical product is the sum of the complements: \u00ac(A \u00b7 B) = \u00acA + \u00acB."
+            },
+            {
+                id: "cs28",
+                question: "What is an XOR (Exclusive OR) gate?",
+                answer: "An XOR gate outputs True (1) only when its inputs are different (one is 1, the other is 0)."
+            },
+            
+            // Number Systems (Page 59)
+            {
+                id: "cs29",
+                question: "What is the base (or radix) of Binary, Octal, Decimal, and Hexadecimal systems?",
+                answer: "Binary is Base-2, Octal is Base-8, Decimal is Base-10, and Hexadecimal is Base-16."
+            },
+            {
+                id: "cs30",
+                question: "Which digits/symbols are used in the Hexadecimal number system?",
+                answer: "It uses digits 0-9 and letters A-F (where A=10, B=11, C=12, D=13, E=14, F=15)."
+            },
+            {
+                id: "cs31",
+                question: "Why do computers use the Binary number system?",
+                answer: "Computer circuits run on electricity, which naturally has two states: ON (High voltage, represented by 1) and OFF (Low voltage, represented by 0)."
+            },
+            {
+                id: "cs32",
+                question: "Convert the binary number (1010) to decimal.",
+                answer: "(1 \u00d7 2^3) + (0 \u00d7 2^2) + (1 \u00d7 2^1) + (0 \u00d7 2^0) = 8 + 0 + 2 + 0 = (10) in decimal."
+            },
+            {
+                id: "cs33",
+                question: "How do you convert a decimal number to binary?",
+                answer: "By repeatedly dividing the decimal number by 2 and recording the remainders from bottom to top."
+            },
+            {
+                id: "cs34",
+                question: "Convert the decimal number 13 to binary.",
+                answer: "13 / 2 = 6 (rem 1); 6 / 2 = 3 (rem 0); 3 / 2 = 1 (rem 1); 1 / 2 = 0 (rem 1). Reading remainders upwards gives (1101) in binary."
+            },
+            {
+                id: "cs35",
+                question: "How many binary bits are required to represent one Octal digit?",
+                answer: "3 bits are required. For example, the maximum octal digit 7 is written as (111) in binary."
+            },
+            {
+                id: "cs36",
+                question: "How many binary bits are required to represent one Hexadecimal digit?",
+                answer: "4 bits are required. For example, the maximum hexadecimal digit F (15) is written as (1111) in binary."
+            },
+            
+            // Encoding Schemes (Page 59)
+            {
+                id: "cs37",
+                question: "What is an encoding scheme?",
+                answer: "It is a set of rules that assigns a unique binary code to each alphanumeric character and symbol, allowing computers to store and transmit text."
+            },
+            {
+                id: "cs38",
+                question: "What does ASCII stand for?",
+                answer: "ASCII stands for American Standard Code for Information Interchange. It originally used 7 bits to represent 128 English characters and symbols."
+            },
+            {
+                id: "cs39",
+                question: "What is ISCII?",
+                answer: "ISCII stands for Indian Script Code for Information Interchange. It is an 8-bit encoding scheme used to represent characters of various Indian local languages."
+            },
+            {
+                id: "cs40",
+                question: "Why was UNICODE introduced?",
+                answer: "ASCII only supported English. UNICODE was created as a universal standard to represent letters, symbols, and emojis for almost every language in the world."
+            }
+        ]
+    },
+
+    // ===== CHAPTER 11: PROBLEM SOLVING (25 Questions) =====
+    problemSolving: {
+        chapterName: "Problem Solving",
+        questions: [
+            {
+                id: "ps1",
+                question: "What are the steps in problem solving?",
+                answer: "Analyzing the problem, developing an algorithm, coding, testing, and debugging."
+            },
+            {
+                id: "ps2",
+                question: "What is an algorithm?",
+                answer: "A step-by-step procedure or set of rules to be followed in calculations or other problem-solving operations."
+            },
+            {
+                id: "ps3",
+                question: "What is a flowchart?",
+                answer: "A graphical representation of an algorithm using standard symbols like ovals, diamonds, and rectangles."
+            },
+            {
+                id: "ps4",
+                question: "What is pseudocode?",
+                answer: "An informal high-level description of an operating principle of a computer program or algorithm."
+            },
+            {
+                id: "ps5",
+                question: "What is decomposition in problem solving?",
+                answer: "Breaking down a complex problem into smaller, more manageable parts or sub-problems."
+            },
+            {
+                id: "ps6",
+                question: "What is debugging?",
+                answer: "The process of identifying and removing errors from computer hardware or software."
+            },
+            {
+                id: "ps7",
+                question: "Which flowchart symbol is used for start/stop?",
+                answer: "An oval (terminator) symbol."
+            },
+            {
+                id: "ps8",
+                question: "Which flowchart symbol is used for input/output?",
+                answer: "A parallelogram."
+            },
+            {
+                id: "ps9",
+                question: "Which flowchart symbol is used for processing?",
+                answer: "A rectangle."
+            },
+            {
+                id: "ps10",
+                question: "Which flowchart symbol is used for decision making?",
+                answer: "A diamond symbol."
+            }
+        ]
+    },
+
+    // ===== CHAPTER 12: STRINGS & TUPLES (30 Questions) =====
+    stringsTuples: {
+        chapterName: "Strings & Tuples",
+        questions: [
+            // Strings (Page 24-25)
+            {
+                id: "st1",
+                question: "What is String Indexing?",
+                answer: "Accessing a specific character in a string using its position (starting from 0)."
+            },
+            {
+                id: "st2",
+                question: "What is Negative Indexing?",
+                answer: "Accessing characters from the end of the string (starting from -1)."
+            },
+            {
+                id: "st3",
+                question: "What is String Slicing?",
+                answer: "Extracting a part of a string using the syntax string[start:stop:step]."
+            },
+            {
+                id: "st4",
+                question: "What does len() do for a string?",
+                answer: "Returns the total number of characters in the string."
+            },
+            {
+                id: "st5",
+                question: "What is String Concatenation?",
+                answer: "Joining two or more strings together using the + operator."
+            },
+            {
+                id: "st6",
+                question: "What is String Repetition?",
+                answer: "Repeating a string a certain number of times using the * operator."
+            },
+            {
+                id: "st7",
+                question: "What does s.capitalize() do?",
+                answer: "Converts the first character of the string to uppercase."
+            },
+            {
+                id: "st8",
+                question: "What is the difference between lower() and isupper()?",
+                answer: "lower() converts a string to lowercase; isupper() checks if the string is already in uppercase."
+            },
+            {
+                id: "st9",
+                question: "What does s.find('x') return if 'x' is not in the string?",
+                answer: "It returns -1."
+            },
+            {
+                id: "st10",
+                question: "What does isalnum() check?",
+                answer: "Checks if all characters in the string are alphanumeric (letters or numbers)."
+            },
+            {
+                id: "st11",
+                question: "What is the difference between lstrip(), rstrip(), and strip()?",
+                answer: "lstrip() removes leading spaces, rstrip() removes trailing spaces, and strip() removes both."
+            },
+            {
+                id: "st12",
+                question: "What does s.replace('a', 'b') do?",
+                answer: "Returns a new string where all occurrences of 'a' are replaced by 'b'."
+            },
+            {
+                id: "st13",
+                question: "What does s.split() do?",
+                answer: "Breaks a string into a list of strings based on a separator (default is space)."
+            },
+            
+            // Tuples (Page 25-26)
+            {
+                id: "st14",
+                question: "How do you define a tuple with a single element?",
+                answer: "t = (5,) (the comma is mandatory)."
+            },
+            {
+                id: "st15",
+                question: "Why are tuples called 'Faster than Lists'?",
+                answer: "Because they are immutable, Python can optimize memory allocation for them."
+            },
+            {
+                id: "st16",
+                question: "Can you change an element in a tuple?",
+                answer: "No, tuples are immutable."
+            },
+            {
+                id: "st17",
+                question: "What is Tuple Assignment?",
+                answer: "Assigning a tuple of values to a tuple of variables (e.g., x, y = 10, 20)."
+            },
+            {
+                id: "st18",
+                question: "What does tuple('abc') return?",
+                answer: "('a', 'b', 'c')."
+            },
+            {
+                id: "st19",
+                question: "Can a tuple be used as a key in a dictionary?",
+                answer: "Yes, because tuples are immutable."
+            },
+            {
+                id: "st20",
+                question: "What happens if you try to sort() a tuple?",
+                answer: "Tuples do not have a .sort() method. You must use sorted(tuple_name), which returns a list."
             }
         ]
     }
