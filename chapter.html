@@ -18,23 +18,19 @@
     </header>
 
     <div class="container">
-        <!-- Simple back link -->
-        <div style="margin-bottom: 2rem;">
-            <a href="index.html" style="color: var(--accent); text-decoration: none;">← Back to Chapters</a>
+        <!-- Compact header line: Back link and counter on same line -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <a href="index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">← Back to Chapters</a>
+            <span id="questionCounter" style="color: var(--text-secondary); font-size: 0.9rem;">Question 1/9</span>
         </div>
 
-        <!-- Question counter -->
-        <div id="questionCounter" style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
-            Question 1/50
-        </div>
-
-        <!-- Question card - minimal design -->
+        <!-- Question card - shifted UP (no extra margin) -->
         <div class="question-card-minimal" id="questionContainer">
             <!-- Question will be loaded here -->
         </div>
 
         <!-- Simple button row -->
-        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
+        <div style="display: flex; gap: 0.8rem; justify-content: center; margin-top: 1.2rem;">
             <button class="btn-nav" id="prevBtn">← Back</button>
             <button class="btn-answer-minimal" id="answerBtn">Show Answer</button>
             <button class="btn-nav" id="nextBtn">Next →</button>
@@ -107,7 +103,7 @@
             }
             
             localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-            displayQuestion(); // Refresh to update star
+            displayQuestion();
         };
 
         // Answer button
@@ -130,7 +126,7 @@
             if (currentIndex < shuffledQuestions.length - 1) {
                 currentIndex++;
             } else {
-                currentIndex = 0; // Loop back
+                currentIndex = 0;
             }
             displayQuestion();
         });
@@ -139,7 +135,7 @@
             if (currentIndex > 0) {
                 currentIndex--;
             } else {
-                currentIndex = shuffledQuestions.length - 1; // Loop to end
+                currentIndex = shuffledQuestions.length - 1;
             }
             displayQuestion();
         });
