@@ -153,22 +153,31 @@ h1 {
     color: var(--accent);
 }
 
-/* Delete icon for bookmarks page */
+/* Delete icon for bookmarks play page - matches bookmark star position */
 .delete-icon-minimal {
     position: absolute;
     top: 1rem;
     right: 1.2rem;
-    font-size: 1.2rem;
+    width: 28px;
+    height: 28px;
+    background-color: var(--danger);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: bold;
     cursor: pointer;
-    color: var(--danger);
-    transition: transform 0.2s;
+    transition: all 0.2s;
     line-height: 1;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .delete-icon-minimal:hover {
     transform: scale(1.1);
     opacity: 1;
+    background-color: #ff5252;
 }
 
 /* Compact buttons */
@@ -273,9 +282,11 @@ h1 {
     }
     
     .delete-icon-minimal {
-        font-size: 1.1rem;
         top: 0.8rem;
         right: 1rem;
+        width: 24px;
+        height: 24px;
+        font-size: 1rem;
     }
     
     .btn-nav, .btn-answer-minimal {
