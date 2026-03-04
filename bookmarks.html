@@ -19,74 +19,59 @@
 
     <div class="container">
         <h1>🔖 Your Bookmarks</h1>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">Select a chapter to view your saved questions</p>
         
-        <div class="bookmarks-container" id="bookmarksContainer">
-            <!-- Bookmarks will be loaded here -->
+        <div class="chapters-grid" id="bookmarkedChaptersGrid">
+            <!-- Bookmarked chapters will load here -->
+        </div>
+        
+        <div id="noBookmarksMessage" style="display: none; text-align: center; color: var(--text-secondary); margin-top: 3rem; padding: 2rem; background-color: var(--bg-card); border-radius: 8px;">
+            <p>No bookmarks yet. Star questions while studying to save them here!</p>
         </div>
     </div>
 
     <script src="questions.js"></script>
     <script>
-        function loadBookmarks() {
-            const container = document.getElementById('bookmarksContainer');
-            container.innerHTML = '';
+        // Load ONLY chapters that have bookmarked questions
+        function loadBookmarkedChapters() {
+            const grid = document.getElementById('bookmarkedChaptersGrid');
+            const noMsg = document.getElementById('noBookmarksMessage');
             
-            let hasBookmarks = false;
+            let hasAnyBookmarks = false;
             
             for (let [chapterKey, questionIds] of Object.entries(bookmarks)) {
-                if (questionIds.length === 0) continue;
-                
-                hasBookmarks = true;
-                const chapter = questionsData[chapterKey];
-                
-                if (!chapter) continue;
-                
-                const chapterDiv = document.createElement('div');
-                chapterDiv.innerHTML = `<h2 style="margin: 2rem 0 1rem;">${chapter.chapterName}</h2>`;
-                
-                questionIds.forEach(questionId => {
-                    const question = chapter.questions.find(q => q.id === questionId);
-                    if (!question) return;
+                if (questionIds.length > 0) {
+                    hasAnyBookmarks = true;
+                    const chapter = questionsData[chapterKey];
                     
-                    const bookmarkItem = document.createElement('div');
-                    bookmarkItem.className = 'bookmark-item';
-                    bookmarkItem.innerHTML = `
-                        <div class="delete-bookmark" onclick="removeBookmark('${chapterKey}', '${questionId}')">✕</div>
-                        <div class="question-text">${question.question}</div>
-                        <div class="answer-section">
-                            <button class="btn-answer" onclick="showAnswer(this)">See Answer</button>
-                            <div class="answer-text">${question.answer}</div>
-                        </div>
+                    if (!chapter) continue;
+                    
+                    const chapterCard = document.createElement('div');
+                    chapterCard.className = 'chapter-card';
+                    chapterCard.onclick = () => {
+                        window.location.href = `bookmarks-play.html?chapter=${chapterKey}`;
+                    };
+                    
+                    chapterCard.innerHTML = `
+                        <h3>${chapter.chapterName}</h3>
+                        <p>${questionIds.length} bookmarked ${questionIds.length === 1 ? 'question' : 'questions'}</p>
+                        <small>Click to start →</small>
                     `;
                     
-                    chapterDiv.appendChild(bookmarkItem);
-                });
-                
-                container.appendChild(chapterDiv);
+                    grid.appendChild(chapterCard);
+                }
             }
             
-            if (!hasBookmarks) {
-                container.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">No bookmarks yet. Star questions while studying to save them here!</p>';
+            if (!hasAnyBookmarks) {
+                noMsg.style.display = 'block';
+                grid.style.display = 'none';
+            } else {
+                noMsg.style.display = 'none';
+                grid.style.display = 'grid';
             }
         }
         
-        window.removeBookmark = function(chapterKey, questionId) {
-            const index = bookmarks[chapterKey].indexOf(questionId);
-            if (index > -1) {
-                bookmarks[chapterKey].splice(index, 1);
-                localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-                loadBookmarks(); // Refresh the display
-            }
-        };
-        
-        window.showAnswer = function(button) {
-            const answerDiv = button.nextElementSibling;
-            answerDiv.classList.toggle('show');
-            button.textContent = answerDiv.classList.contains('show') ? 'Hide Answer' : 'See Answer';
-        };
-        
-        // Load bookmarks on page load
-        loadBookmarks();
+        loadBookmarkedChapters();
     </script>
 </body>
 </html>
