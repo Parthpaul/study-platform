@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Platform - Bookmarks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">📚 StudyPlatform</a>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="bookmarks.html" class="active">🔖 Bookmarks</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Simple back link -->
+        <div style="margin-bottom: 2rem;">
+            <a href="bookmarks.html" style="color: var(--accent); text-decoration: none;">← Back to Bookmarks</a>
+        </div>
+
+        <!-- Chapter title (small) -->
+        <div style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;" id="chapterTitleDisplay"></div>
+
+        <!-- Question counter -->
+        <div id="questionCounter" style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
+            Question 1/50
+        </div>
+
+        <!-- Question card - minimal design -->
+        <div class="question-card-minimal" id="questionContainer">
+            <!-- Question will be loaded here -->
+        </div>
+
+        <!-- Simple button row -->
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
+            <button class="btn-nav" id="prevBtn">← Back</button>
+            <button class="btn-answer-minimal" id="answerBtn">Show Answer</button>
+            <button class="btn-nav" id="nextBtn">Next →</button>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script>
+        // Get chapter from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const chapterKey = urlParams.get('chapter');
+        
+        if (!chapterKey || !questionsData[chapterKey]) {
+            window.location.href = 'bookmarks.html';
+        }
+
+        const chapter = questionsData[chapterKey];
+        let currentIndex = 0;
+        let bookmarkedQuestions = [];
+        let answerVisible = false;
+
+        // Get ONLY bookmarked questions
+        function getBookmarkedQuestions() {
+            const bookmarkedIds = bookmarks[chapterKey] || [];
+            bookmarkedQuestions = chapter.questions.filter(q => bookmarkedIds.includes(q.id));
+            
+            if (bookmarkedQuestions.length === 0) {
+                window.location.href = 'bookmarks.html';
+            }
+        }
+
+        // Display current question
+        function displayQuestion() {
+            const question = bookmarkedQuestions[currentIndex];
+            
+            document.getElementById('chapterTitleDisplay').textContent = chapter.chapterName;
+            document.getElementById('questionCounter').textContent = 
+                `Question ${currentIndex + 1}/${bookmarkedQuestions.length}`;
+            
+            const container = document.getElementById('questionContainer');
+            container.innerHTML = `
+                <div style="position: relative;">
+                    <div class="bookmark-icon-minimal bookmarked" 
+                         onclick="removeBookmark('${chapterKey}', '${question.id}')">
+                        ★
+                    </div>
+                    <div class="question-text-minimal">
+                        ${question.question}
+                    </div>
+                    <div class="answer-text-minimal" id="answerDisplay" style="display: none;">
+                        ${question.answer}
+                    </div>
+                </div>
+            `;
+            
+            answerVisible = false;
+            document.getElementById('answerBtn').textContent = 'Show Answer';
+        }
+
+        // Remove bookmark
+        window.removeBookmark = function(chapterKey, questionId) {
+            const index = bookmarks[chapterKey].indexOf(questionId);
+            if (index > -1) {
+                bookmarks[chapterKey].splice(index, 1);
+                localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+                
+                getBookmarkedQuestions();
+                
+                if (bookmarkedQuestions.length === 0) {
+                    window.location.href = 'bookmarks.html';
+                } else {
+                    if (currentIndex >= bookmarkedQuestions.length) {
+                        currentIndex = 0;
+                    }
+                    displayQuestion();
+                }
+            }
+        };
+
+        // Answer button
+        document.getElementById('answerBtn').addEventListener('click', function() {
+            const answerDiv = document.getElementById('answerDisplay');
+            if (answerDiv) {
+                if (answerVisible) {
+                    answerDiv.style.display = 'none';
+                    this.textContent = 'Show Answer';
+                } else {
+                    answerDiv.style.display = 'block';
+                    this.textContent = 'Hide Answer';
+                }
+                answerVisible = !answerVisible;
+            }
+        });
+
+        // Navigation
+        document.getElementById('nextBtn').addEventListener('click', function() {
+            if (currentIndex < bookmarkedQuestions.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            displayQuestion();
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', function() {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = bookmarkedQuestions.length - 1;
+            }
+            displayQuestion();
+        });
+
+        // Initialize
+        getBookmarkedQuestions();
+        displayQuestion();
+    </script>
+</body>
+</html>
