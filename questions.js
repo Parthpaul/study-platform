@@ -2325,7 +2325,7 @@ const questionsData = {
             {
                 id: "dbms3",
                 question: "State one primary advantage of DBMS over a traditional file system.",
-                answer: "Unlike file systems, a DBMS reduces data duplication (redundancy) and allows multiple users to access data simultaneously."
+                answer: "Data Redundancy Control\nData Consistency\nData Security\nData Integrity\nConcurrent Access\nBackup and Recovery\nEfficient Query Processing\nScalability and Flexibility\nData Independence\n Unlike file systems, a DBMS reduces data duplication (redundancy) and allows multiple users to access data simultaneously."
             },
             {
                 id: "dbms4",
@@ -2961,3 +2961,4 @@ const questionsData = {
 
 // Initialize bookmarks from localStorage
 let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || {};
+
